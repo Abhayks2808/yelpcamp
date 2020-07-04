@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+            <h3>Hello</h3>
+            <p>You are 30 seconds away from Editing new Comment!</p>
+            
+        </div>
+        <div class="col-md-9 register-right">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Edit Comment to <%=Campground.name %></h3>
+                    <div class="row register-form">
+                        <div class="col">
+                            <form class="was-validated" action="/Campgrounds/<%= Campground.id %>/comments/<%=Comment.id %>" method="POST">
+                                <div class="form-group">
+                                    <label for="validationTextarea">YOUR COMMENT*</label>
+                                    <textarea class="form-control" id="validationTextarea" name="text" placeholder="Required example textarea" required><%=Comment.text %></textarea>
+                                    <div class="invalid-feedback">
+                                      Please enter a comment related to <%=Campground.name %>.
+                                    </div>
+                                  </div>
+                                  <button class="btn btn-danger btn-block" type="submit">Submit</button>
+                            </form>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>           
+
+<%- include('../partials/footer') %>

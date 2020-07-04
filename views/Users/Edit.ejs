@@ -1,0 +1,47 @@
+<%- include('../partials/header') %>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Creative Colorlib SignUp Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Edit profile</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form class="was-validated" action="/users/<%=user.id%>" method="post">
+					<input class="text" type="text" name="fullname" value="<%= user.fullname %>" placeholder="fullname" required>
+					  <div class="invalid-feedback">
+						  Please enter a your fullname.
+						</div>
+					<input class="text" type="email" name="email" value="<%=user.email %>" placeholder="email" required>
+					  <div class="invalid-feedback">
+						  Please enter your emailid.
+						</div>
+					<input class="text" type="text" name="username" value="<%=user.username%>" placeholder="Username" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid-username.
+					  </div>
+					
+					  <button class="btn btn-success btn-block" type='submit'>Edit details</button>
+				</form>
+			
+			</div>
+		</div>
+		
+</body>
+</html>
+
+
+
+<%- include('../partials/footer') %>

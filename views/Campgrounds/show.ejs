@@ -1,0 +1,47 @@
+<%- include('../partials/header') %>
+ <div class="container mt-5">
+     <div class="row mt-5">
+         <div class="col-md-3">
+           <h5>ekjh</h5>
+         </div>
+         <div class="col-md-9">
+             <div class="card">
+                <img src="<%= Campground.image %>" class="card-img-top" alt="<%=Campground.name %>">
+                <div class="card-body">
+                  <h5 class="card-title"><%=Campground.name %></h5>
+                  <p class="card-text"><%=Campground.description %></p>  
+                  <a href="/Campgrounds/<%=Campground.id %>/Edit" class="btn btn-danger">Edit</a>
+                  <form action="/Campgrounds/<%=Campground.id %>/delete" style="display: inline;" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                </div>
+                </div>
+                <div class="card mt-4">
+                  <div class="card-body">
+                    <div class="text-right">
+                      <a href="/Campgrounds/<%= Campground.id %>/comments/new" class="btn btn-danger">Add new Comment</a>
+                      <hr>
+                      <% for( comment of  Campground.comments) { %>
+                       <div class="row">
+                         <div class="col-md-12">
+                          <span class="text=right" style="float:right"><%= comment.createdAt.toDateString() %></span>
+                          <p class=text-left>
+                              <%=comment.text %>
+                         </p>
+                         </div>
+                         <a href="/Campgrounds/<%= Campground.id %>/comments/<%=comment.id %>/edit" class="btn btn-danger">EDIT</a>
+                         <form class="form-inline" method="POST" action="/Campgrounds/<%= Campground.id %>/comments/<%=comment.id %>/delete">
+                           <button class="btn btn-danger">Delete</button>
+                         </form>
+                       </div>
+                       <hr>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+     </div>
+     </div>
+ </div> 
+ </div>
+
+<%- include('../partials/footer') %>
